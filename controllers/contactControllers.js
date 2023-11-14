@@ -30,6 +30,7 @@ const createContact = asyncHandler(async (req,res)=>{
 //@route GET /api/contacts/:id
 //@access private
 const getoneContact = asyncHandler(async (req,res)=>{
+    console.log(req.params.id);
     const contact = await Contact.findById(req.params.id)
     if(!contact){
         res.status(400)
