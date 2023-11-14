@@ -39,6 +39,8 @@ router.route("/").get(getContact);
  *          - 2.) Authorization and CRUD
  *      summary: "adds contact to database"
  *      description: "adds document in mongodb based on current user _id"
+ *      security:
+ *          - bearerAuth: []
  *      requestBody:
  *          content:
  *              application/json:
@@ -82,6 +84,8 @@ router.route("/").post(createContact);
  *          - 2.) Authorization and CRUD
  *      summary: "returns single contact"
  *      description: "return single contact with respect to given id"
+ *      security:
+ *          - bearerAuth: []
  *      parameters:
  *          - in: path
  *            name: contact_id
@@ -113,6 +117,8 @@ router.route("/:id").get(getoneContact);
  *          - 2.) Authorization and CRUD
  *      summary: "updates single contact"
  *      description: "updates single contact with respect to given id"
+ *      security:
+ *          - bearerAuth: []
  *      parameters:
  *          - in: path
  *            name: contact_id
@@ -164,6 +170,8 @@ router.route("/:id").put(updateContact)
  *          - 2.) Authorization and CRUD
  *      summary: "deletes single contact"
  *      description: "deletes single contact with respect to given id"
+ *      security:
+ *          - bearerAuth: []
  *      parameters:
  *          - in: path
  *            name: contact_id

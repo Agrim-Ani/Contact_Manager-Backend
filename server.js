@@ -12,7 +12,10 @@ const swaggerOptions = {
     swaggerDefinition: {
         openapi: '3.0.3',
         info: {
-            title: 'Node/express rest api app',
+            title: 'Backend Infrastructure of a Contact Manager Application',
+            description:'1.) Authentication:\n\n a.) User First Registers in the platform\n\nb.) Login will return an access token \n\nc.) Use token for authorization in the authorization button\n\n'+
+                        '2.) Authorization and CRUD:\n\n a.) Create some contacts under the existing user i.e {POST: /api/contacts} (one with the current token)\n\nb.)Use the other routes to perform the CRUD operations\n\n'+
+                        '*NOTE* : The token will expire every 15 min for demonstration purposes, the user needs to login again after 15 min ',
             version: '0.0.1',
         },
         components: {
