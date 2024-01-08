@@ -2,6 +2,7 @@ const express = require("express");
 const dotenv = require("dotenv").config();
 const errorHandler = require("./middleware/errorHandler")
 const app = express();
+const cors = require('cors');
 const connectDb = require('./config/dbConnection')
 const swaggerJsDoc = require('swagger-jsdoc');
 const swaggerUI = require('swagger-ui-express');
@@ -48,6 +49,7 @@ app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 
 //using middleware
 app.use(express.json())
+app.use(cors());
 //connect to db
 connectDb();
  // app.get('/api/contacts',(req,res)=>{
