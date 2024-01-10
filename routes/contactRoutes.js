@@ -76,9 +76,10 @@ router.route("/").get(getContact);
  *
  */
 router.route("/").post(createContact);
+
 /**
  * @swagger
- * /api/contacts/:id:
+ * /api/contacts/{id}:
  *  get:
  *      tags:
  *          - 2.) Authorization and CRUD
@@ -88,10 +89,10 @@ router.route("/").post(createContact);
  *          - bearerAuth: []
  *      parameters:
  *          - in: path
- *            name: contact_id
+ *            Required: True
+ *            name: id
  *            schema:
  *              type: ObjectId
- *            required: true
  *            description: "numeric id of contact to get"
  *      produces:
  *          - application/json
@@ -103,15 +104,15 @@ router.route("/").post(createContact);
  *                      schema:
  *                          type: object
  *                      example:
- *                          "name": "contact1"
- *                          "email": "contact1@root.com"
+ *                          "name": "contact12"
+ *                          "email": "contact12@root.com"
  *                          "phone": "111111"
  *
  */
 router.route("/:id").get(getoneContact);
 /**
  * @swagger
- * /api/contacts/:id:
+ * /api/contacts/{id}:
  *  put:
  *      tags:
  *          - 2.) Authorization and CRUD
@@ -121,11 +122,11 @@ router.route("/:id").get(getoneContact);
  *          - bearerAuth: []
  *      parameters:
  *          - in: path
- *            name: contact_id
+ *            Required: True
+ *            name: id
  *            schema:
  *              type: ObjectId
- *            required: true
- *            description: "numeric id of contact to get"
+ *            description: "numeric id of contact to update"
  *      requestBody:
  *          description: "content you want to change"
  *          content:
@@ -150,7 +151,7 @@ router.route("/:id").get(getoneContact);
  *          - application/json
  *      responses:
  *          200:
- *              description: "returned contact"
+ *              description: "updated contact"
  *              content:
  *                  application/json:
  *                      schema:
@@ -164,7 +165,7 @@ router.route("/:id").get(getoneContact);
 router.route("/:id").put(updateContact)
 /**
  * @swagger
- * /api/contacts/:id:
+ * /api/contacts/{id}:
  *  delete:
  *      tags:
  *          - 2.) Authorization and CRUD
@@ -174,11 +175,11 @@ router.route("/:id").put(updateContact)
  *          - bearerAuth: []
  *      parameters:
  *          - in: path
- *            name: contact_id
+ *            Required: True
+ *            name: id
  *            schema:
  *              type: ObjectId
- *            required: true
- *            description: "numeric id of contact to get"
+ *            description: "numeric id of contact to delete"
  *      produces:
  *          - application/json
  *      responses:
